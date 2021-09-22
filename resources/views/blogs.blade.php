@@ -7,6 +7,9 @@
     <title>Blogs</title>
 </head>
 <body>
+    @if(session()->has("alert"))
+    <h3>{{session()->get('alert')}}</h3>
+    @endif
     <div>
         <a href="/create">Add New Blog</a>
     </div>
@@ -22,11 +25,11 @@
                 @foreach ($data as $key => $item)
                     <tr>
                         <td>{{ $key+1 }}</td>
-                        <td>{{ $item->title }}</td>
+                        <td><a href="/show/{{ $item->id }}"> {{ $item->title }} </a></td>
                         <td>{{ $item->created_at}}</td>
                         <td>
-                            <a href="#">Delete</a>
-                            <a href="#">Update</a>
+                            <a href="/delete/{{ $item->id }}">Delete</a>
+                            <a href="/update/{{ $item->id}}">Update</a>
                         </td>
                     </tr>
                 @endforeach

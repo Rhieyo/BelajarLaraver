@@ -11,21 +11,23 @@
         <a href="/">Back</a>
     </div>
     <div>
-        <form action="">
+        <form action="/update/{{$data->id}}" method="POST">
+            <input type="hidden" name="_method" value="PATCH">
+            @csrf
             <div>
                 <label for="">Title</label>
             </div>
             <div>
-                <input type="text">
+                <input name="title" type="text" value="{{$data->title}}">
             </div>
             <div>
                 <label for="">Description</label>
             </div>
             <div>
-                <textarea name="" id="" cols="30" rows="5"></textarea>
+                <textarea name="description" id="" cols="30" rows="5">{{$data->description}}</textarea>
             </div>
             <div>
-                <button type="submit">Submit</button>
+                <button type="submit">Save And Change</button>
             </div>
         </form>
     </div>

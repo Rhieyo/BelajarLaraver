@@ -11,18 +11,20 @@
         <a href="/">Back</a>
     </div>
     <div>
-        <form action="">
+        
+        <form action="/store" method="POST">
+            @csrf
             <div>
                 <label for="">Title</label>
             </div>
             <div>
-                <input type="text">
+                <input name="title" type="text">
             </div>
             <div>
                 <label for="">Description</label>
             </div>
             <div>
-                <textarea name="" id="" cols="30" rows="5"></textarea>
+                <textarea name="description" id="" cols="30" rows="5"></textarea>
             </div>
             <div>
                 <button type="submit">Submit</button>
